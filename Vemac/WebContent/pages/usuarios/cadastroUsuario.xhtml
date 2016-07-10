@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition template="/pages/template/_templateUser.xhtml" 
+    xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<ui:define name="content">
+	
+		<p:messages id="messagens" globalOnly="true" showDetail="true" autoUpdate="true" closable="true"></p:messages>
+	
+		<p:fieldset legend="Cadastro"  >
+		
+			<h:panelGrid columns="3" id="panel" >
+				<p:outputLabel id="nome" value="Nome* " ></p:outputLabel>	
+				<p:inputText id="InputNome" for="nome" value="#{usuarioBean.usuario.nome}" required="true" 
+				requiredMessage="O campo nome é obrigatório.">
+				</p:inputText>	
+				<p:message for="InputNome" display="text"></p:message>
+				
+				<p:outputLabel id="email" value="Email* "></p:outputLabel>	
+				<p:inputText id="inputEmail" for="email" value="#{usuarioBean.usuario.email}" required="true"
+				requiredMessage="O campo email é obrigatório." ></p:inputText>
+				<p:message for="inputEmail" display="text"></p:message>
+				
+				<p:outputLabel id="senha" value="Senha* " ></p:outputLabel>
+				<p:password feedback="true" id="inputSenha" for="senha" value="#{usuarioBean.usuario.senha}" required="true" 
+				requiredMessage="O campo senha é obrigatório."></p:password>
+				<p:message for="inputSenha" display="text"></p:message>
+			</h:panelGrid>
+			
+			<p:commandButton value="Salvar" actionListener="#{usuarioBean.salvar}" update="panel" 
+			style="margin-top: 2%;"></p:commandButton>
+			<p:commandButton id="render" value="Efetue Login"  action="/login?faces-redirect=true" immediate="true"  
+			style="margin-top: 2%;"></p:commandButton>
+			
+		</p:fieldset>
+	</ui:define>
+	
+	
+	
+
+
+</ui:composition>

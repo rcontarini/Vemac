@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition template="/pages/template/_template.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<ui:define name="center">
+	
+	
+		<p:messages globalOnly="true"  showDetail="true" id="mensagens"  autoUpdate="true" closable="true"></p:messages>
+		
+		 <p:fieldset id="field" legend="Cadastro fornecedor" >
+		  <h:panelGrid columns="2">
+		 	<p:column width="50%" >
+		 		<h:panelGrid columns="3" >
+		 			<p:outputLabel id="nome" value="Nome Fantasia:"></p:outputLabel>
+					<p:inputText id="inputNome" for="nome" value="#{fornecedorBean.fornecedor.nomeFantasia}" size="30" required="true" requiredMessage="O campo Nome Fantasia é obrigatório"></p:inputText>
+					<p:message for="inputNome" display="text" ></p:message>
+			
+					<p:outputLabel id="razao" value="Razão Social:"></p:outputLabel>
+					<p:inputText id="inputRazao" for="razao" value="#{fornecedorBean.fornecedor.razaoSocial}" size="30" required="true" requiredMessage="O campo Razão Social é obrigatório" ></p:inputText>
+					<p:message for="inputRazao" display="text" ></p:message>
+					
+					<p:outputLabel id="CNPJ" value="CNPJ"></p:outputLabel>
+					<p:inputMask id="inputCNPJ" for="CNPJ" mask="99.999.999/9999-99" value="#{fornecedorBean.fornecedor.cnpj}" required="true" requiredMessage="O campo CNPJ é obrigatório" ></p:inputMask>
+					<p:message for="inputCNPJ" display="text" ></p:message>
+					
+					<p:outputLabel id="ie" value="Inscrição Estadual"></p:outputLabel>
+					<p:inputMask id="inputIe" for="ie" mask="999.999.999.999" required="true" value="#{fornecedorBean.fornecedor.iE}" requiredMessage="O campo Inscrição Estadual é obrigatório"></p:inputMask>
+					<p:message for="inputIe" display="text"></p:message>
+					
+					<p:outputLabel id="log" value="Logradouro"></p:outputLabel>
+					<p:inputText id="inputLog" for="log" value="#{fornecedorBean.endereco.logradouro}" required="true" requiredMessage="O campo Logradouro é obrigatório" ></p:inputText>
+					<p:message for="inputLog" display="text"></p:message>
+					
+					<p:outputLabel id="rua" value="Nome da Rua"></p:outputLabel>
+					<p:inputText id="inputRua" for="rua" value="#{fornecedorBean.endereco.nomeRua}" required="true" requiredMessage="O campo Rua é obrigatório" ></p:inputText>
+					<p:message for="inputRua" display="text"></p:message>
+					
+					<p:outputLabel id="numero" value="Numero"></p:outputLabel>
+					<p:inputText id="inputNumero" type="number" for="numero" value="#{fornecedorBean.endereco.numero}" required="true" requiredMessage="O campo Numero é obrigatório"></p:inputText>
+					<p:message for="inputNumero" display="text"></p:message>
+					
+					<p:outputLabel id="comp" value="Complemento"></p:outputLabel>
+					<p:inputText id="inputComp" for="comp" value="#{fornecedorBean.endereco.complemento}" ></p:inputText>
+					<p:message for="inputComp" display="text"></p:message>
+		 		</h:panelGrid>
+		 	</p:column>
+		 	<p:column width="50%">
+		 		<h:panelGrid columns="3" >
+		 			<p:outputLabel id="uf" value="UF"></p:outputLabel>
+					<p:inputText id="inputUF" maxlength="2" for="uf" value="#{fornecedorBean.endereco.uF}" required="true" requiredMessage="O campo UF é obrigatório" ></p:inputText>
+					<p:message for="inputUF" display="text"></p:message>
+					
+					<p:outputLabel id="cep" value="CEP"></p:outputLabel>
+					<p:inputMask id="inputCEP" for="cep" mask="99999-999" value="#{fornecedorBean.endereco.cep}" required="true" requiredMessage="O campo CEP é obrigatório" ></p:inputMask>
+					<p:message for="inputCEP" display="text"></p:message>
+					
+					<p:outputLabel id="bairro" value="Bairro"></p:outputLabel>
+					<p:inputText id="inputBairro" for="bairro" value="#{fornecedorBean.endereco.bairro}" required="true" requiredMessage="O campo Bairro é obrigatório"></p:inputText>
+					<p:message for="inputBairro" display="text"></p:message>
+					
+					<p:outputLabel id="cidade" value="Cidade"></p:outputLabel>
+					<p:inputText id="inputCidade" for="cidade" value="#{fornecedorBean.endereco.cidade}" required="true" requiredMessage="O campo Cidade é obrigatório"></p:inputText>
+					<p:message for="inputCidade" display="text"></p:message>
+					
+					<p:outputLabel id="tel" value="Telefone"></p:outputLabel>
+					<p:inputMask id="inputTel" for="tel" mask="(99) 9999-9999" value="#{fornecedorBean.fornecedor.telefone}" required="true" requiredMessage="O campo telefone é obrigatório"></p:inputMask>
+					<p:message for="inputTel" display="text"></p:message>
+					
+					<p:outputLabel id="cel" value="Celular"></p:outputLabel>
+					<p:inputMask id="inputCel" for="cel" mask="(99) 99999-9999" value="#{fornecedorBean.fornecedor.celular}" ></p:inputMask>
+					<p:message for="inputCel" display="text" ></p:message>
+					
+					<p:outputLabel id="contato" value="Nome do Contato"></p:outputLabel>
+					<p:inputText id="inputContato" for="contato" value="#{fornecedorBean.fornecedor.nomeContato}" required="true" requiredMessage="O campo telefone é obrigatório" ></p:inputText>
+					<p:message for="inputContato" display="text"></p:message>
+					
+					<p:outputLabel id="email" value="Email do Contato"></p:outputLabel>
+					<p:inputText id="inputEmail" for="email" value="#{fornecedorBean.fornecedor.email}" validatorMessage="O campo não segue um padrão de email válido" required="true" requiredMessage="O campo Email é obrigatório" >
+						<f:validateRegex pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"/>
+					</p:inputText>
+					<p:message for="inputEmail" display="text"></p:message>
+		 		</h:panelGrid>
+		 	</p:column>
+		 </h:panelGrid>
+		 	<p:commandButton value="Salvar" style="margin-top:2%" update="field" actionListener="#{fornecedorBean.salvar()}"></p:commandButton>
+		 	<p:commandButton value="Voltar" style="margin-top:2%" action="/pages/fornecedor/fornecedor_view?faces-redirect=true" immediate="true"></p:commandButton>
+		 </p:fieldset>
+	</ui:define>
+
+
+</ui:composition>

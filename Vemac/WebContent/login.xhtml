@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition template="/pages/template/_templateUser.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="content">
+	
+		<p:messages globalOnly="true"  showDetail="true" id="mensagens"  autoUpdate="true" closable="true"></p:messages>
+		
+		<p:ajaxStatus onstart="PF('statusLoading').show()"
+					onsuccess="PF('statusLoading').hide()" />
+
+		<p:dialog widgetVar="statusLoading" modal="false" draggable="false"
+				closable="false" resizable="false" showHeader="false">
+				<p:graphicImage library="image" name="loading2.gif" />
+		</p:dialog>
+		
+
+		<p:panel id="panel" header="Login"
+			style="font-size: 20px !important; height: 450px; 
+		 margin-top: 5%; margin-left: 33% !important; margin-right: 33% !important;">
+
+			<h:panelGrid columns="1" style="margin-top: 15%; margin-left: 1% !important;">
+
+				<p:outputLabel id="email" value="E-mail: " style="font-size: 18px !important;"></p:outputLabel>
+				<p:inputText id="inputEmail" for="email" value="#{loginBean.usuarioTela.email}" required="true" requiredMessage="O campo email não pode ser nulo!" size="30" style="height: 30px" />
+				<p:message for="inputEmail" display="text" ></p:message>
+				
+				<p:outputLabel id="senha" value="Senha: " style="font-size: 18px !important;"/>
+				<p:password id="password" value="#{loginBean.usuarioTela.senha}" required="true" requiredMessage="O campo senha não pode ser nulo!" size="30" style="height: 30px" for="senha" />
+				<p:message for="password" display="text" ></p:message>
+
+				<p:commandButton value="ENTRAR" actionListener="#{loginBean.login}" action="/pages/fornecedor/fornecedor_view?faces-redirect=true"
+					style=" width: 99%; height: 40px !important; margin-top: 30px; "
+					update="form:panel" />
+			</h:panelGrid>
+
+			<h:panelGrid columns="2" style="margin-top: 10%; margin-left: 2.5%;">
+				<p:outputLabel value="Não Possui Cadastro?"
+					style="font-size: 14px !important"></p:outputLabel>
+				<p:commandLink value="Cadastre-se aqui" action="/pages/usuarios/cadastroUsuario?faces-redirect=true"
+					style="font-size: 14px !important"></p:commandLink>
+			</h:panelGrid>
+
+		</p:panel>
+	</ui:define>
+</ui:composition>
